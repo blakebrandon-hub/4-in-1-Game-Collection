@@ -1,6 +1,6 @@
 # 🕹️ The 5-in-1 Game Collection
 
-Welcome to the hub. Five different worlds, one central launchpad.
+Welcome to the hub.
 
 Choose your game below:
 
