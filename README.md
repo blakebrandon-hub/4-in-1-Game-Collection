@@ -2,7 +2,7 @@
 
 | Title | Built With | What it is | Status |
 | :--- | :---: | :--- | :---: |
-| **[Sprawl](https://github.com/blakebrandon-hub/Sprawl)** | HTML/JS | *Navigate the neon-lit underbelly of a sprawling cyberpunk metropolis in this interactive text adventure.* | [💻 View Code](https://github.com/blakebrandon-hub/Sprawl) |
+| **[Sprawl](https://github.com/blakebrandon-hub/Sprawl)** | HTML/JS/Python | *Navigate the neon-lit underbelly of a sprawling cyberpunk metropolis in this interactive text adventure.* | [💻 View Code](https://github.com/blakebrandon-hub/Sprawl) |
 | **[Warden](https://github.com/blakebrandon-hub/Warden)** | HTML/JS/Python | *A grimdark, AI-driven RPG where a digital Game Master parses hidden runes to track your spells, inventory, and survival.* | [💻 View Code](https://github.com/blakebrandon-hub/Wardem) |
 | **[Greywake](https://www.google.com/search?q=link-to-repo)** | HTML/JS/Python | *Set sail into a fog-drenched nautical mystery where every decision alters the course of your cursed journey.* | [💻 View Code](https://www.google.com/search?q=link-to-repo) |
 | **[Black-Ichor](https://github.com/blakebrandon-hub/Black-Ichor)** | HTML/JS/Python | *A visceral survival horror experience where a cold, impartial AI observer documents your desperate struggle against entropy.* | [💻 View Code](https://github.com/blakebrandon-hub/Black-Ichor) |
