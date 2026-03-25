@@ -1,4 +1,4 @@
-# 🕹️ The 5-in-1 Game Collection
+# 🕹️ Game Collection
 
 | Title | Built With | What it is | Status |
 | :--- | :---: | :--- | :---: |
