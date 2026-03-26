@@ -83,13 +83,3 @@ Explore my other work:
 ## 📄 License
 
 Each project maintains its own licensing. Check individual repositories for details.
-
----
-
-<div align="center">
-
-**Built with ❤️ for interactive storytelling**
-
-[⭐ Star this collection](https://github.com/blakebrandon-hub) • [🐛 Report Issues](https://github.com/blakebrandon-hub) • [💬 Discuss](https://github.com/blakebrandon-hub)
-
-</div>
