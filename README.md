@@ -4,7 +4,7 @@
 | :--- | :---: | :--- | :---: |
 | **[Sprawl](https://github.com/blakebrandon-hub/Sprawl)** | HTML/JS/Python | *Navigate the neon-lit underbelly of a sprawling cyberpunk metropolis in this interactive text adventure.* | [💻 View Code](https://github.com/blakebrandon-hub/Sprawl) |
 | **[Warden](https://github.com/blakebrandon-hub/Warden)** | HTML/JS/Python | *A grimdark, AI-driven RPG where a digital Game Master parses hidden runes to track your spells, inventory, and survival.* | [💻 View Code](https://github.com/blakebrandon-hub/Wardem) |
-| **[Greywake](https://www.google.com/search?q=link-to-repo)** | HTML/JS/Python | *Set sail into a fog-drenched nautical mystery where every decision alters the course of your cursed journey.* | [💻 View Code](https://www.google.com/search?q=link-to-repo) |
+| **[Greywake](https://www.google.com/search?q=link-to-repo)** | HTML/JS/Python | *A narrative-driven space adventure where your decisions echo across the cosmos. Explore alien worlds, navigate political intrigue, and uncover mysteries older than the stars.* | [💻 View Code](https://www.google.com/search?q=link-to-repo) |
 | **[Black-Ichor](https://github.com/blakebrandon-hub/Black-Ichor)** | HTML/JS/Python | *A visceral survival horror experience where a cold, impartial AI observer documents your desperate struggle against entropy.* | [💻 View Code](https://github.com/blakebrandon-hub/Black-Ichor) |
 | **[Garden-World](https://github.com/blakebrandon-hub/Garden-World)** | HTML/JS/Python | *A cozy, two-player narrative simulation about co-authoring a shared routine and tending a hydroponic garden in deep space.* | [💻 View Code](https://github.com/blakebrandon-hub/Garden-World) |
 
