@@ -6,12 +6,12 @@
 
 ## 🎮 Games
 
-| Title | Description | Tech Stack | Links |
-| :--- | :--- | :---: | :---: |
-| **[Sprawl](https://github.com/blakebrandon-hub/Sprawl)** | *John is an operator who drifted too deep into the heavy-metal end of the trade and never found a clean way back. Now he works the Sprawl—contracts, deadlines, and whatever else comes his way.* | HTML • JS • Python | [💻 Code](https://github.com/blakebrandon-hub/Sprawl) |
-| **[Warden](https://github.com/blakebrandon-hub/Warden)** | *Stand against the Void as humanity's last defense. Master 32 ancient Words of power, forge oaths across four kingdoms, and hold the line between reality and oblivion.* | HTML • JS • Python | [💻 Code](https://github.com/blakebrandon-hub/Warden) |
-| **[Greywake](https://github.com/blakebrandon-hub/Greywake)** | *A narrative-driven space adventure where your decisions echo across the cosmos. Explore alien worlds, navigate political intrigue, and uncover mysteries older than the stars.* | HTML • JS • Python | [💻 Code](https://www.google.com/search?q=link-to-repo) |
-| **[Black Ichor](https://github.com/blakebrandon-hub/Black-Ichor)** | *Scavenge the ruins. Fortify the Sanctuary. Fight the Ichor. In a world of liquid shadow, the caloric math is absolute. Survive a visceral, text-based reality where every resource is scarce and the silence is your only warning.* | HTML • JS • Python | [💻 Code](https://github.com/blakebrandon-hub/Black-Ichor) |
+| Project Name | Description |
+| :--- | :--- |
+| **Sprawl** | *John is an operator who drifted too deep into the heavy-metal end of the trade and never found a clean way back. Now he works the Sprawl—contracts, deadlines, and whatever else comes his way.* |
+| **Warden** | *Stand against the Void as humanity's last defense. Master 32 ancient Words of power, forge oaths across four kingdoms, and hold the line between reality and oblivion.* |
+| **Greywake** | *A narrative-driven space adventure where your decisions echo across the cosmos. Explore alien worlds, navigate political intrigue, and uncover mysteries older than the stars.* |
+| **Black Ichor** | *Scavenge the ruins. Fortify the Sanctuary. Fight the Ichor. In a world of liquid shadow, the caloric math is absolute. Survive a visceral, text-based reality where every resource is scarce and the silence is your only warning.* |
 
 
 ---
