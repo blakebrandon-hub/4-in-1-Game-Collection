@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4-in-1 Game Collection</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Neural Link Color Palette */
+            --bg-void: #030305;
+            --bg-panel: #0a0b10;
+            --neural-cyan: #00f0ff;
+            --neural-cyan-dim: rgba(0, 240, 255, 0.15);
+            --neural-purple: #7000ff;
+            --text-main: #e2e8f0;
+            --text-muted: #64748b;
+            --border-dim: #1a1e29;
+            --border-glow: #00f0ff;
+            
+            --font-head: 'Rajdhani', sans-serif;
+            --font-mono: 'Share Tech Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-head);
+            background-color: var(--bg-void);
+            color: var(--text-main);
+            line-height: 1.6;
+            
+            /* Neural Grid / Node Background */
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: center center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Subtle radial glow in the background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- Header / UI Boot Sequence --- */
+        .system-header {
+            text-align: center;
+            padding: 80px 20px 50px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .system-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px var(--neural-cyan-dim);
+        }
+
+        .system-header p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-family: var(--font-mono);
+            margin-bottom: 15px;
+        }
+
+        .system-header a {
+            color: var(--neural-cyan);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            border-bottom: 1px dashed var(--neural-cyan);
+            transition: all 0.3s ease;
+        }
+
+        .system-header a:hover {
+            text-shadow: 0 0 10px var(--neural-cyan-dim);
+            border-bottom-style: solid;
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1400px; /* Slightly wider to accommodate 4 cards comfortably */
+            margin: 0 auto;
+            padding: 0 20px 80px;
+        }
+
+        /* --- Game Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Forces 4 columns on desktop */
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        /* --- Interface Cards (Games) --- */
+        .card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border-dim);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Tech corner accents */
+        .card::before, .card::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease;
+            z-index: 10;
+        }
+        .card::before {
+            top: -1px; left: -1px;
+            border-top-color: var(--border-dim);
+            border-left-color: var(--border-dim);
+        }
+        .card::after {
+            bottom: -1px; right: -1px;
+            border-bottom-color: var(--border-dim);
+            border-right-color: var(--border-dim);
+        }
+
+        .card:hover {
+            border-color: var(--neural-cyan);
+            box-shadow: 0 0 25px var(--neural-cyan-dim);
+            transform: translateY(-5px);
+        }
+
+        .card:hover::before { border-top-color: var(--neural-cyan); border-left-color: var(--neural-cyan); }
+        .card:hover::after { border-bottom-color: var(--neural-cyan); border-right-color: var(--neural-cyan); }
+
+        /* Card Image */
+        .card-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border-dim);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.7;
+            filter: grayscale(40%) contrast(120%);
+            transition: all 0.5s ease;
+        }
+
+        .card:hover .card-image {
+            opacity: 1;
+            filter: grayscale(0%) contrast(100%);
+            transform: scale(1.05);
+        }
+
+        /* Card Content */
+        .card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        /* --- Buttons --- */
+        .card-actions {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .btn-action {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 0;
+            background: transparent;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-action::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-action:hover::before {
+            left: 0;
+        }
+
+        /* Play Button specific styles */
+        .btn-play {
+            border: 1px solid var(--neural-cyan);
+            color: var(--neural-cyan);
+        }
+        .btn-play::before {
+            background: var(--neural-cyan);
+        }
+        .btn-play:hover {
+            color: var(--bg-void);
+            box-shadow: 0 0 15px var(--neural-cyan);
+        }
+
+        /* Code Button specific styles */
+        .btn-code {
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+        }
+        .btn-code::before {
+            background: var(--text-main);
+        }
+        .btn-code:hover {
+            color: var(--bg-void);
+            box-shadow: 0 0 15px rgba(226, 232, 240, 0.3);
+            border-color: var(--text-main);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border-dim);
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-void);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1200px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .system-header h1 {
+                font-size: 2.5rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="system-header">
+        <h1>🕹️ 4-in-1 Game Collection</h1>
+        <p>AI-Powered Interactive Fiction — A collection of narrative-driven games with on-demand image generation built with HTML/JS/Python, designed to work seamlessly with Gemini, GPT, and Claude.</p>
+        <p><a href="https://github.com/blakebrandon-hub/5-in-1-Game-Collection" target="_blank"><i class="fa-solid fa-link"></i> github.com/blakebrandon-hub/4-in-1-Game-Collection</a></p>
+    </header>
+
+    <div class="container">
+        <main class="grid">
+            
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://github.com/user-attachments/assets/abe3e982-aeae-4823-9431-345f94fa1cdc" alt="Sprawl Node" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Sprawl</h2>
+                    <p class="card-desc">John is an operator who drifted too deep into the heavy-metal end of the trade and never found a clean way back. Now he works the Sprawl.</p>
+                    <div class="card-actions">
+                        <a href="./Sprawl/index.html" class="btn-action btn-play">Play</a>
+                        <a href="https://github.com/blakebrandon-hub/Sprawl" target="_blank" class="btn-action btn-code"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </article>
+
+             <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://github.com/user-attachments/assets/19a22bff-ba14-43df-9ca0-21da4afb6ced" alt="Black Ichor Node" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Black Ichor</h2>
+                    <p class="card-desc">Scavenge the ruins. Fortify the Sanctuary. Fight the Ichor. Survive a visceral reality where resource math is absolute and silence is your only warning.</p>
+                    <div class="card-actions">
+                        <a href="./Black-Ichor/index.html" class="btn-action btn-play">Play</a>
+                        <a href="https://github.com/blakebrandon-hub/Black-Ichor" target="_blank" class="btn-action btn-code"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://github.com/user-attachments/assets/a34f7e5a-b218-4e2f-a277-e03028f79df2" alt="Warden Node" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Warden</h2>
+                    <p class="card-desc">Stand against the Void as humanity's last defense. Master 32 ancient Words of power, forge oaths, and hold the line between reality and oblivion.</p>
+                    <div class="card-actions">
+                        <a href="./Warden/index.html" class="btn-action btn-play">Play</a>
+                        <a href="https://github.com/blakebrandon-hub/Warden" target="_blank" class="btn-action btn-code"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <img src="https://github.com/user-attachments/assets/c73a3e53-65c1-403c-bed0-5e4a7e88552c" alt="Greywake Node" class="card-image">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Greywake</h2>
+                    <p class="card-desc">A narrative-driven space adventure where your decisions echo across the cosmos. Explore alien worlds, navigate political intrigue, and uncover mysteries.</p>
+                    <div class="card-actions">
+                        <a href="./Greywake/index.html" class="btn-action btn-play">Play</a>
+                        <a href="https://github.com/blakebrandon-hub/Greywake" target="_blank" class="btn-action btn-code"><i class="fa-brands fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+
+    </div>
+
+    <footer>
+        <p style="margin-top: 10px; font-size: 0.75rem; opacity: 0.5;"></p>
+    </footer>
+
+</body>
+</html>
