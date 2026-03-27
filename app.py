@@ -1,13 +1,3 @@
-"""
-🎮 UNIFIED GAME BACKEND
-A single Flask backend supporting all five AI-powered narrative games.
-
-Supports:
-- Narrators: Claude Sonnet 4.6, Gemini 3.1 Pro Preview, GPT 5.4
-- Image Models: Imagen 4.0, Google Image 1.5
-- Routes: /api/chat, /api/archive, /api/painter
-"""
-
 import os
 import base64
 import json
