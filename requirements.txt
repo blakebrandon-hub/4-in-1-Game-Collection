@@ -1,0 +1,12 @@
+# Flask web framework
+flask>=2.3.0
+flask-cors>=4.0.0
+
+# AI Model SDKs
+google-generativeai>=0.3.0  # Gemini & Imagen
+anthropic>=0.18.0            # Claude
+openai>=1.10.0               # GPT
+
+# Utilities (already included in above SDKs)
+# requests
+# python-dotenv  # Optional: for .env file loading
