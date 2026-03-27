@@ -21,6 +21,46 @@ app = Flask(__name__)
 CORS(app)
 
 # ─────────────────────────────────────────────
+# GAME ROUTES (TEMPLATES & AUDIO)
+# ─────────────────────────────────────────────
+
+# --- SPRAWL ---
+@app.route('/Sprawl/index.html')
+def play_sprawl():
+    return send_from_directory('templates/templates_sprawl', 'index.html')
+
+@app.route('/Sprawl/<path:filename>')
+def serve_sprawl_static(filename):
+    return send_from_directory('static/static_sprawl', filename)
+
+# --- BLACK ICHOR ---
+@app.route('/Black-Ichor/index.html')
+def play_ichor():
+    return send_from_directory('templates/templates_ichor', 'index.html')
+
+@app.route('/Black-Ichor/<path:filename>')
+def serve_ichor_static(filename):
+    return send_from_directory('static/static_ichor/', filename)
+
+# --- WARDEN ---
+@app.route('/Warden/index.html')
+def play_warden():
+    return send_from_directory('templates/templates_warden', 'index.html')
+
+@app.route('/Warden/<path:filename>')
+def serve_warden_static(filename):
+    return send_from_directory('static/static_warden', filename)
+
+# --- GREYWAKE ---
+@app.route('/Greywake/index.html')
+def play_greywake():
+    return send_from_directory('templates/templates_greywake', 'index.html')
+
+@app.route('/Greywake/<path:filename>')
+def serve_greywake_static(filename):
+    return send_from_directory('static/static_greywake', filename)
+
+# ─────────────────────────────────────────────
 # MODEL SELECTION
 # ─────────────────────────────────────────────
 
@@ -70,46 +110,6 @@ IMAGE_PROVIDER = get_provider(IMAGE_MODEL)
 GEMINI_ARCHIVIST_AND_REFINER = 'gemini-flash-lite-latest'
 GPT_ARCHIVIST_AND_REFINER = "gpt-5.4-mini"
 CLAUDE_ARCHIVIST_AND_REFINER = "claude-haiku-4-5"
-
-# ─────────────────────────────────────────────
-# GAME ROUTES (TEMPLATES & AUDIO)
-# ─────────────────────────────────────────────
-
-# --- SPRAWL ---
-@app.route('/Sprawl/index.html')
-def play_sprawl():
-    return send_from_directory('templates_sprawl', 'index.html')
-
-@app.route('/Sprawl/<path:filename>')
-def serve_sprawl_static(filename):
-    return send_from_directory('static_sprawl', filename)
-
-# --- BLACK ICHOR ---
-@app.route('/Black-Ichor/index.html')
-def play_ichor():
-    return send_from_directory('templates_ichor', 'index.html')
-
-@app.route('/Black-Ichor/<path:filename>')
-def serve_ichor_static(filename):
-    return send_from_directory('static_ichor', filename)
-
-# --- WARDEN ---
-@app.route('/Warden/index.html')
-def play_warden():
-    return send_from_directory('templates_warden', 'index.html')
-
-@app.route('/Warden/<path:filename>')
-def serve_warden_static(filename):
-    return send_from_directory('static_warden', filename)
-
-# --- GREYWAKE ---
-@app.route('/Greywake/index.html')
-def play_greywake():
-    return send_from_directory('templates_greywake', 'index.html')
-
-@app.route('/Greywake/<path:filename>')
-def serve_greywake_static(filename):
-    return send_from_directory('static_greywake', filename)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # AI HANDLERS - NARRATION
