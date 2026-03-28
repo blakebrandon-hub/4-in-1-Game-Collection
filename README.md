@@ -26,6 +26,8 @@ A space opera with a crew of five distinct characters, a faction standing system
 
 A post-apocalyptic survival game with real resource pressure (HP, Pressure, Noise, Supplies), a base-building system, alchemy crafting, vow-based objectives, and procedural BGM that transitions between ambient and combat states.
 
+**Total File Size:** 146 MB
+
 ---
 
 ✨ **Bonus: Etching Press Integration**
