@@ -107,6 +107,16 @@ GEMINI_ARCHIVIST_AND_REFINER = 'gemini-flash-lite-latest'
 GPT_ARCHIVIST_AND_REFINER = "gpt-5.4-mini"
 CLAUDE_ARCHIVIST_AND_REFINER = "claude-haiku-4-5"
 
+# Helper to get archivist model based on narrator provider
+def get_archivist_model(narrator_provider):
+    """Return the appropriate archivist model based on narrator provider."""
+    if narrator_provider == "gpt":
+        return GPT_ARCHIVIST_AND_REFINER
+    elif narrator_provider == "claude":
+        return CLAUDE_ARCHIVIST_AND_REFINER
+    else:  # Default to Gemini
+        return GEMINI_ARCHIVIST_AND_REFINER
+
 # ─────────────────────────────────────────────────────────────────────────────
 # AI HANDLERS - NARRATION
 # ─────────────────────────────────────────────────────────────────────────────
@@ -213,7 +223,7 @@ def handle_archive(log_segment, narrator_provider, archivist_prompt):
             model=model,
             system="Summarize the following conversation accurately.",
             messages=[{"role": "user", "content": log_segment}],
-            max_tokens_to_sample=8000,
+            max_tokens=8000,
             temperature=0.3
         )
         return response.content[0].text
@@ -368,7 +378,7 @@ def archive_route():
         log_segment = data.get('context', '')
         archivist_prompt = data.get('system_instruction', '')
         
-        summary = handle_archive(log_segment, archivist_prompt)
+        summary = handle_archive(log_segment, NARRATOR_PROVIDER, archivist_prompt)
         
         return jsonify({"text": summary})
     
@@ -441,7 +451,7 @@ def get_config():
         "narrator_provider": NARRATOR_PROVIDER,
         "image_model": IMAGE_MODEL,
         "image_provider": IMAGE_PROVIDER,
-        "archivist_model": ARCHIVIST_MODEL
+        "archivist_model": get_archivist_model(NARRATOR_PROVIDER)
     })
 
 
